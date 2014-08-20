@@ -1,7 +1,9 @@
+FILE=philass
+all: $(FILE).pdf
 
-all: crimass.pdf
-
-crimass.pdf: crimass.tex
-	latex crimass; bibtex crimass; latex crimass; pdflatex crimass
+$(FILE).pdf: $(FILE).tex
+	latex $(FILE); bibtex $(FILE); latex $(FILE); pdflatex $(FILE)
 clean:
-	rm crimass.{aux,blg,bbl,log,dvi,pdf}
+	rm $(FILE).{aux,blg,bbl,log,dvi,pdf}
+open:
+	xdg-open $(FILE).pdf
